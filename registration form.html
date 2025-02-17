@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Auth Form</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: #f2f2f2;
+        }
+        .container {
+            width: 100%;
+            max-width: 400px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        form {
+            width: 100%;
+            display: none;
+            flex-direction: column;
+            gap: 10px;
+        }
+        form.active {
+            display: flex;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        p {
+            text-align: center;
+        }
+        span {
+            color: #4a90e2;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <form id="register-form" class="active">
+                <h2>Registration</h2>
+                <input type="text" placeholder="Username" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button type="submit">Register</button>
+                <p>Already have an account? <span id="login-btn">Login</span></p>
+            </form>
+            <form id="login-form">
+                <h2>Welcome Back!</h2>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Password" required>
+                <button id="btn" type="submit">Login</button>
+                <p>Don't have an account? <span id="register-btn">Register</span></p>
+            </form>
+        </div>
+    </div>
+    <script>
+        document.getElementById("login-btn").addEventListener("click", function() {
+            document.getElementById("register-form").classList.remove("active");
+            document.getElementById("login-form").classList.add("active");
+        });
+        document.getElementById("register-btn").addEventListener("click", function() {
+            document.getElementById("login-form").classList.remove("active");
+            document.getElementById("register-form").classList.add("active");
+        });
+        document.getElementById("btn").onclick= ()=>{
+            alert("you are welcome  to visit our site");
+        };
+    </script>
+</body>
+</html>
